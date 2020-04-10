@@ -42,6 +42,21 @@ namespace RegularExpression
             {
                 MessageBox.Show("The E-mail address is invalid (use a valid address)");
             }
+            string formattedNumber = ReformatPhone(txtPhone.Text);
+            Console.WriteLine(formattedNumber);
+        }
+
+        private string ReformatPhone(string input)
+        {
+            string result = null;
+            string start = input.Substring(0, 4);
+            string mid = input.Substring(4, 3);
+            string end = input.Substring(7, 4);
+            
+            // (###) ###-####
+            result = String.Format("({0}) {1}-{2}", start, mid, end);
+
+            return result;
         }
     }
 }
